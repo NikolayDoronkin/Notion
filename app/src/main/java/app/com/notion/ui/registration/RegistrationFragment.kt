@@ -90,9 +90,9 @@ class RegistrationFragment : BaseFragment() {
                 binding.editTextName.requestFocus()
                 binding.editTextName.error = getString(R.string.name_field_error)
             }
-            name.isEmpty() -> {
-                binding.editTextName.requestFocus()
-                binding.editTextName.error = getString(R.string.email_field_error)
+            email.isEmpty() || !email.matches(Regex("[a-zA-Z1-9\\-\\._]+@[a-z1-9]+(.[a-z1-9]+){1,}")) -> {
+                binding.editTextEmail.requestFocus()
+                binding.editTextEmail.error = getString(R.string.email_field_error)
             }
             password.isEmpty() -> {
                 binding.editTextPassword.requestFocus()
